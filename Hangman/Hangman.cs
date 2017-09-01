@@ -26,6 +26,23 @@ namespace Hangman {
 
         }
 
+        //returns a string representation of the person
+        //if there are no body parts then nothing will show
+        //e.g. if you have two wrong answers then "head torso " will be output
+        public StringBuilder ShowBody() {
+
+            StringBuilder body = new StringBuilder();
+            string[] bodyParts = { "head ", "torso ", "left arm ", "right arm ", "left leg ", "right leg " };
+
+            if (bodyCounter != 0) {
+
+                body.Append(bodyParts[bodyCounter - 1]);
+            }
+
+            return body;
+
+        }
+
     }
 
 }
