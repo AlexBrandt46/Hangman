@@ -20,9 +20,43 @@ namespace Hangman {
             guesses = new char[letters.Length];
             wrong = new List<char>();
 
+            //creates the blank guess message that the player would check his guesses with
+            for (int i = 0; i < letters.Length; i++) {
+
+                if (letters[i].Equals(' ')) {
+
+                    guesses[i] = ' ';
+
+                }
+                else {
+
+                    guesses[i] = '_';
+
+                }
+
+            }
+
         }
 
+        //searches the sentence for the letter that the user is looking for
+        //if it finds it then it adds it to the sentence that's being guessed
+        //if it doesn't find it th method adds it to the list of wrong letters
         public void Search(char letter) {
+
+            for (int i = 0; i < letters.Length; i++) {
+
+                if (letters[i].Equals(letter)) {
+
+                    guesses[i] = letter;
+
+                }
+                else {
+
+                    wrong.Add(letter);
+
+                }
+
+            }
 
         }
 
@@ -32,7 +66,7 @@ namespace Hangman {
         public StringBuilder ShowBody() {
 
             StringBuilder body = new StringBuilder();
-            string[] bodyParts = { "head ", "torso ", "left arm ", "right arm ", "left leg ", "right leg " };
+            string[] bodyParts = { "head \n", "torso \n", "left arm \n", "right arm \n", "left leg \n", "right leg \n" };
 
             if (bodyCounter != 0) {
 
