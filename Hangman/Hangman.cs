@@ -8,7 +8,7 @@ namespace Hangman {
 
     class Hangman {
 
-        private int bodyCounter; //counts how many bosy parts there currently are
+        private int bodyCounter; //counts how many body parts there currently are
         private char[] letters; //contains each individual letter of the sentence entered by the user
         private char[] guesses; //the string representation of the correct guesses
         private List<char> wrong; //the wrong guesses
@@ -53,8 +53,19 @@ namespace Hangman {
                 else {
 
                     wrong.Add(letter);
+                    bodyCounter++;
 
                 }
+
+            }
+
+        }
+
+        public void OutputGuess() {
+
+            for (int i = 0; i < guesses.Length; i++) {
+
+                Console.Write(guesses[i]);
 
             }
 
