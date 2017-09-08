@@ -54,6 +54,8 @@ namespace Hangman {
         //if it doesn't find it th method adds it to the list of wrong letters
         public void Search(char letter) {
 
+            int letterAmount = 0; //the current amount of letters equal to "letter" 
+
             for (int i = 0; i < letters.Length; i++) {
 
                 if (letters[i].Equals(letter)) {
@@ -61,12 +63,12 @@ namespace Hangman {
                     guesses[i] = letter;
 
                 }
-                else {
 
-                    wrong.Add(letter);
-                    bodyCounter++;
+            }
 
-                }
+            if (letterAmount == 0) {
+
+                wrong.Add(letter);
 
             }
 

@@ -16,6 +16,17 @@ namespace Hangman {
             message = Console.ReadLine();
             game = new Hangman(message);
 
+            while (!(game.BodyCounter == 6)) {
+
+                char guess; //the current guess
+
+                Console.Write("Please enter the first letter that you'd like to guess: ");
+                guess = Convert.ToChar(Console.ReadLine());
+
+                game.Search(guess);
+
+            }
+
         }
     }
 }
