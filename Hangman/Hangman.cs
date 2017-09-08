@@ -38,6 +38,17 @@ namespace Hangman {
 
         }
 
+        //used to get and return the current body part count
+        public int BodyCounter {
+
+            get {
+
+                return bodyCounter;
+
+            }
+
+        }
+
         //searches the sentence for the letter that the user is looking for
         //if it finds it then it adds it to the sentence that's being guessed
         //if it doesn't find it th method adds it to the list of wrong letters
