@@ -41,6 +41,11 @@ namespace Hangman {
         //used to get and return the current body part count
         public int BodyCounter {
 
+            set {
+
+                bodyCounter = value;
+
+            }
             get {
 
                 return bodyCounter;
@@ -61,6 +66,7 @@ namespace Hangman {
                 if (letters[i].Equals(letter)) {
 
                     guesses[i] = letter;
+                    letterAmount++;
 
                 }
 
@@ -69,11 +75,12 @@ namespace Hangman {
             if (letterAmount == 0) {
 
                 wrong.Add(letter);
+                this.BodyCounter++;
 
             }
-
         }
 
+        //outputs the current variation of the guesses array to give the user an idea of how their correct guesses fit the prompt
         public void OutputGuess() {
 
             for (int i = 0; i < guesses.Length; i++) {
@@ -81,6 +88,9 @@ namespace Hangman {
                 Console.Write(guesses[i]);
 
             }
+
+            Console.WriteLine();
+            Console.WriteLine();
 
         }
 
@@ -92,7 +102,7 @@ namespace Hangman {
             StringBuilder body = new StringBuilder();
             string[] bodyParts = { "head \n", "torso \n", "left arm \n", "right arm \n", "left leg \n", "right leg \n" };
 
-            if (bodyCounter != 0) {
+            if (this.BodyCounter != 0) {
 
                 body.Append(bodyParts[bodyCounter - 1]);
             }
@@ -104,3 +114,11 @@ namespace Hangman {
     }
 
 }
+
+/*TODO:
+ * 
+ * make a method to output the incorrect guesses
+ * 
+ * 
+ * 
+ */
