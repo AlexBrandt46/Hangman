@@ -16,6 +16,9 @@ namespace Hangman {
             message = Console.ReadLine();
             game = new Hangman(message);
 
+            //outputs the prompt for the user based on the message
+            game.OutputGuess();
+
             while (!(game.BodyCounter == 6)) {
 
                 char guess; //the current guess
@@ -24,6 +27,7 @@ namespace Hangman {
                 guess = Convert.ToChar(Console.ReadLine());
 
                 game.Search(guess);
+                game.OutputGuess();
 
             }
 
